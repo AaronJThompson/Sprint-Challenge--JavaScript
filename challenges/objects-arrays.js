@@ -14,21 +14,47 @@
 
 // Using your dinosaur objects, log answers to these questions:
 
+let trex = {
+  name: "tyrannosaurus",
+  diet: "carnivorous",
+  weight: "7000kg",
+  bodyLength: "12m", // Not using `length` as Object.length already uses this to store object and array lengths
+  period: "Late Cretaceous",
+  roar() {
+    return "RAWERSRARARWERSARARARRRR!";
+  },
+}
+
+let steg = {
+  name:"stegosaurus",
+  diet:"herbivorous",
+  weight:"2000kg",
+  bodyLength:"9m",
+  period:"Late Jurassic",
+}
+
+let veloc = {
+  name: "velociraptor",
+  diet: "carnivorous",
+  weight: "15kg",
+  bodyLength: "1.8m",
+  period: "Late Cretaceous",
+}
 // How much did tyrannosaurus weigh?
-console.log();
+console.log(trex.weight);
 
 // What was the diet of a velociraptor?
-console.log();
+console.log(veloc.diet);
 
 // How long was a stegosaurus?
-console.log();
+console.log(steg.bodyLength);
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(trex.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+console.log(trex.roar());
 
 
 // ==== Arrays ====
@@ -50,6 +76,51 @@ const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern 
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
+
+//Populate university array
+for (let i = 0; i < graduates.length; i++) {
+  universities[i] = graduates[i].university;
+}
+
+// Assuming we can use the sort function until further notice
+// universities.sort();
+
+function quicksort(arr, left = 0, right = arr.length - 1) {
+  if(left >= right){
+      return;
+  }
+  let pivot = arr[right];
+  let partitionedIndex = partition(arr, left, right, pivot);
+  quicksort(arr, left, partitionedIndex - 1);
+  quicksort(arr, partitionedIndex + 1, right);
+}
+
+function partition(arr, left, right, pivot) {
+  let leftIndex = left;
+  let rightIndex = right - 1;
+  while (true) {
+      while(arr[leftIndex] < pivot && leftIndex < right){
+          leftIndex++;
+      }
+
+      while(rightIndex >= 0 && arr[rightIndex] > pivot){
+          rightIndex--;
+      }
+      if(leftIndex >= rightIndex){
+          break;
+      }else{
+          let temp = arr[rightIndex];
+          arr[rightIndex] = arr[leftIndex];
+          arr[leftIndex] = temp;
+      }
+  }
+  let temp = arr[right];
+  arr[right] = arr[leftIndex];
+  arr[leftIndex] = temp;
+  return leftIndex;
+}
+quicksort(universities);
+
 console.log(universities)
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
@@ -59,11 +130,21 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
+
+for(let i=0; i < graduates.length; i++) {
+  contactInfo[i] = `${graduates[i].first_name} ${graduates[i].email}`;
+}
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
+
+for(let i = 0; i < universities.length; i++) {
+  if(universities[i].includes("Uni")) {
+    uni.push(universities[i]);
+  }
+}
 console.log(uni);
 
 
@@ -89,6 +170,10 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
+
+zooAnimals.forEach(item => {
+  animalNames.push(`Name: ${item.animal_name}, Scientific: ${item.scientific_name}.`);
+})
 console.log(animalNames);
 
 /* Request 2: .map()    
@@ -97,7 +182,7 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 
 */
 
-const lowerCase = [];
+const lowerCase = zooAnimals.map(item => item.animal_name.toLowerCase());
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
@@ -105,7 +190,7 @@ console.log(lowerCase);
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = [];
+const largerPopulation = zooAnimals.filter(item => item.population < 5);
 console.log(largerPopulation);
 
 /* Request 4: .reduce() 
@@ -113,7 +198,7 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
+const populationTotal = zooAnimals.reduce(((acc, cur) => acc + cur.population), 0);
 console.log(populationTotal);
 
 

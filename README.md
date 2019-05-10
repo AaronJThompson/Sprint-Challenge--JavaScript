@@ -30,13 +30,29 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+A: .forEach doesn't create a new array or assign values by itself, where as .map creates a new array and assigns 
+each element to returned value of the callback with the array element as a parameter.
+
 2. What is the difference between a function and a method?
+
+A: A function works independently of any parent objects and usually only acts on the parameters passed to it. 
+A method on the other hand is a function that is a member of (or otherwise associated with) an object, used to perform actions related to and or on the object it is a member of.
+In other words, a method provides functionallity to an object and a function provides generalised functionallity.
 
 3. What is closure?
 
+A: a closure is when an inner function is allowed access to the outer scope it's defined in. It provides a method of 'remembering' variables in it's enclosed scope even when that scope and it's variables are closed.
+
 4. Describe the four rules of the 'this' keyword.
 
+A: The first rule is Implicit binding. This is where 'this' is binded to the object the function is currently being called from.
+The second rule is 'new' binding. This is when the keyword 'new' is used to create a new object. In this instance, this refers to an empty object that is an instance of the object currently being created.
+the third rule is global object binding. This is similar to implicit binding, but instead the object 'this' refers to is the global object ('window' for browsers). This usually happens when a function is called independant of any objects.
+the last rule is explicit binding. This is when 'this' is binded to an object defined explicity. This can be done using methods such as Function.prototype.call(), where the function is invoked and binded to the object passed into the '.call' method.
+
 5. Why do we need super() in an extended class?
+
+A: super() refers to the parent (or super class) constructor. We need it in order to construct the parent object and apply all of its properties and methods the class we are currently constructing, otherwise extended the parent class becomes largely useless.
 
 ## Project Set up
 
