@@ -85,7 +85,7 @@ for (let i = 0; i < graduates.length; i++) {
 // Assuming we can use the sort function until further notice
 // universities.sort();
 
-function quicksort(arr, left, right) {
+function quicksort(arr, left = 0, right = arr.length - 1) {
   if(right-left <=0){
       return;
   }
@@ -119,7 +119,7 @@ function partition(arr, left, right, pivot) {
   arr[leftIndex] = temp;
   return leftIndex;
 }
-quicksort(universities, 0, universities.length - 1);
+quicksort(universities);
 
 console.log(universities)
 
