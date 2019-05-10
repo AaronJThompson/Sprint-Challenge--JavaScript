@@ -14,6 +14,29 @@
 
 // Using your dinosaur objects, log answers to these questions:
 
+let trex = {
+  name: "tyrannosaurus",
+  diet: "carnivorous",
+  weight: "7000kg",
+  bodyLength: "12m", // Not using `length` as Object.length already uses this to store object and array lengths
+  period: "Late Cretaceous",
+}
+
+let steg = {
+  name:"stegosaurus",
+  diet:"herbivorous",
+  weight:"2000kg",
+  bodyLength:"9m",
+  period:"Late Jurassic",
+}
+
+let veloc = {
+  name: "velociraptor",
+  diet: "carnivorous",
+  weight: "15kg",
+  bodyLength: "1.8m",
+  period: "Late Cretaceous",
+}
 // How much did tyrannosaurus weigh?
 console.log();
 
