@@ -86,7 +86,7 @@ for (let i = 0; i < graduates.length; i++) {
 // universities.sort();
 
 function quicksort(arr, left = 0, right = arr.length - 1) {
-  if(right-left <=0){
+  if(left >= right){
       return;
   }
   let pivot = arr[right];
