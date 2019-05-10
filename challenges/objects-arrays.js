@@ -20,6 +20,9 @@ let trex = {
   weight: "7000kg",
   bodyLength: "12m", // Not using `length` as Object.length already uses this to store object and array lengths
   period: "Late Cretaceous",
+  roar() {
+    return "RAWERSRARARWERSARARARRRR!";
+  },
 }
 
 let steg = {
@@ -38,20 +41,20 @@ let veloc = {
   period: "Late Cretaceous",
 }
 // How much did tyrannosaurus weigh?
-console.log();
+console.log(trex.weight);
 
 // What was the diet of a velociraptor?
-console.log();
+console.log(veloc.diet);
 
 // How long was a stegosaurus?
-console.log();
+console.log(steg.bodyLength);
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(trex.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+console.log(trex.roar());
 
 
 // ==== Arrays ====
