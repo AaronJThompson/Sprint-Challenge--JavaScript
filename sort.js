@@ -1,4 +1,4 @@
-function quicksort(arr, left, right) {
+/* function quicksort(arr, left, right) {
     if(right-left <=0){
         return;
     }
@@ -35,4 +35,4 @@ function partition(arr, left, right, pivot) {
 
 let nums = [3,8,6,11,9,10,1,2,5];
 quicksort(nums, 0, nums.length - 1);
-console.log(nums);
+console.log(nums); */
